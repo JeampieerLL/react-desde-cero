@@ -13,12 +13,37 @@ import Curso from './Curso'
 7.- for => htmlFor
 */
 
+const cursos = [
+  {
+    "title": "React desde cero",
+    "image": "https://edteam-media.s3.amazonaws.com/courses/small/f7dad9a6-e060-4305-9adf-b9a9079075de.jpg",
+    "price": 30,
+    "profesor": "Jeampieer Limahuaya"
+  }, {
+    "title": "Html desde cero",
+    "image": "https://edteam-media.s3.amazonaws.com/courses/small/26557907-0555-427e-a40c-6ff207f98d72.png",
+    "price": 50,
+    "profesor": "Greta Tarazona"
+  }, {
+    "title": "Python desde cero",
+    "image": "https://edteam-media.s3.amazonaws.com/courses/small/8e6ca04d-3961-4f90-8e97-8ec1384c8363.png",
+    "price": 20,
+    "profesor": "Alfonso Juárez"
+  }, {
+    "title": "Ruby desde cero",
+    "image": "https://edteam-media.s3.amazonaws.com/courses/small/440bf729-4f2b-49a6-a0c7-7cf65a8bd31b.png",
+    "price": 90,
+    "profesor": "JUanito Pérez"
+  }
+]
+
+
 const App = () => (
   <>
   <div className="main-banner img-container l-section" id="main-banner">
     <div className="ed-grid lg-grid-6">
       <div className="lg-cols-4 lg-x-2">
-        <img className="main-banner__img" alt="banner" src="https://scontent.flim1-2.fna.fbcdn.net/v/t1.6435-9/141115726_2844145469207162_6878228424090213429_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=AukrupnyY18AX9tHiZg&_nc_ht=scontent.flim1-2.fna&oh=b27f51aed49462d9a3336c2c567df9df&oe=60CB76BC"/>
+        <img className="main-banner__img" alt="banner" src="https://images.unsplash.com/photo-1621359729283-c83f6d0da708?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"/>
         <div className="main-banner__data s-center">
           <p className="t2 s-mb-0">Título del banner</p>
           <p> Tu futuro te está esperando</p>
@@ -29,13 +54,9 @@ const App = () => (
   </div>
 
   <div className="ed-grid m-grid-3">
-    <Curso />
-    <Curso />
-    <Curso />
-    <Curso />
-    <Curso />
-    <Curso />
-    <Curso />
+    {
+      cursos.map( curso => <Curso title={curso.title} image={curso.image} price={curso.price} profesor={curso.profesor} /> )
+    }
   </div>
   </>
 )

@@ -1,29 +1,36 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
-const Curso = () => (
-    <article class="card">
-      <div class="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
-        <img src="https://scontent.flim1-2.fna.fbcdn.net/v/t1.6435-9/83225082_2529414984013547_8177895134931714048_n.jpg?_nc_cat=108&ccb=1-3&_nc_sid=a4a2d7&_nc_ohc=jWeuCR_P_FwAX90gmhb&_nc_ht=scontent.flim1-2.fna&oh=b192a01b4da93c4646eb6369676b66c2&oe=60CB281A" alt="greta"/>
-      </div>
-      <div class="card__data s-border s-radius-br s-radius-bl s-pxy-2">
-        <h3 class="t5 s-mb-2 s-center">
-          Programación orientada a objetos con Go
-        </h3>
-        <div class="s-mb-2 s-main-center">
-          <div class="card__teacher s-cross-center">
-            <div class="card__avatar s-mr-1">
-              <div class="circle img-container">
-                <img src="https://scontent.flim1-2.fna.fbcdn.net/v/t1.6435-9/141115726_2844145469207162_6878228424090213429_n.jpg?_nc_cat=102&ccb=1-3&_nc_sid=09cbfe&_nc_ohc=AukrupnyY18AX9tHiZg&_nc_ht=scontent.flim1-2.fna&oh=b27f51aed49462d9a3336c2c567df9df&oe=60CB76BC" alt="" />
-              </div>
-            </div>
-            <span class="small">Greta Tarazona</span>
-          </div>
+
+const Curso = ({title, image, price, profesor}) => (
+  <article class="card" id={title}>
+    <div className="img-container s-ratio-16-9 s-radius-tr s-radius-tl">
+      <img src={image} alt={title}/>
+    </div>
+    <div className="card__data s-border s-radius-br s-radius-bl s-pxy-2">
+        <h3 className="center">{title}</h3>
+        <div className="s-main-center">
+          {`${profesor}`}
         </div>
-        <div class="s-main-center">
-          <a class="button--ghost-alert button--tiny" href="#">$ Invaluable</a>
-        </div>
+        <div className="s-main-center">
+        <a className="button--ghost-alert button--tiny" href="#">{`$ ${price} USD`}</a>
       </div>
-    </article> 
+    </div>
+  </article> 
 )
+
+Curso.propTypes = {
+  title: PropTypes.string,
+  image: PropTypes.string,
+  price: PropTypes.number,
+  profesor: PropTypes.string
+}
+
+Curso.defaultProps = {
+  title: "No se encontró título",
+  image: "https://www.publicdomainpictures.net/pictures/280000/nahled/not-found-image-15383864787lu.jpg",
+  price: "--",
+  profesor: ""
+}
 
 export default Curso;
